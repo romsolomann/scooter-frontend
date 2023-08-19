@@ -1,7 +1,6 @@
 import axios, { type AxiosInstance } from "axios";
+import { BACKEND_API_URL } from "../constants/common";
 import { type ResponseError } from "../interfaces/api.interface";
-
-const BACKEND_API_URL = "http://localhost:3030/api";
 
 export interface DetailsError {
 	message: string;
