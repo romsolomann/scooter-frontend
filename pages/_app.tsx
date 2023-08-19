@@ -4,15 +4,11 @@ import { CssBaseline } from "@mui/material";
 import { type ReactElement, type ReactNode } from "react";
 import { type DehydratedState } from "@tanstack/query-core";
 import { CacheProvider, type EmotionCache } from "@emotion/react";
-import { toast } from "react-toastify";
 
 import { UserContextWrapper } from "../contexts/user.context";
 import { DialogProvider } from "../contexts/dialog.context";
 import { ReactQueryProvider } from "../providers/react-query.provider";
 import { clientSideEmotionCache } from "../utils/create-emotion-cache";
-import { TOAST_CLOSE_TIME } from "../constants/common";
-import { getToastType } from "../utils/get-toast-type";
-import { ToastContainer } from "../components/ToastContainer";
 
 import "../styles/globals.css";
 import "../styles/mapbox.css";
@@ -51,14 +47,6 @@ function MyApp({
 				<UserContextWrapper>
 					{getLayout(
 						<>
-							<ToastContainer
-								rtl={true}
-								closeButton={false}
-								autoClose={TOAST_CLOSE_TIME}
-								position={toast.POSITION.BOTTOM_LEFT}
-								hideProgressBar={true}
-								icon={getToastType}
-							/>
 							<CssBaseline />
 							<DialogProvider>
 								<Component {...pageProps} />
