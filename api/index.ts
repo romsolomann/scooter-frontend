@@ -51,7 +51,8 @@ export function getBackendApi(
 	authRequired = false
 ): AxiosInstance {
 	return createAxiosInstance(
-		BACKEND_API_URL + routeSuffix,
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+		BACKEND_API_URL! + routeSuffix,
 		authRequired,
 		async (error: ResponseError): Promise<BackendError> => {
 			return (
