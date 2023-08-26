@@ -1,5 +1,4 @@
 import axios, { type AxiosInstance } from "axios";
-import { BACKEND_API_URL } from "../constants/common";
 import { type ResponseError } from "../interfaces/api.interface";
 
 export interface DetailsError {
@@ -51,8 +50,7 @@ export function getBackendApi(
 	authRequired = false
 ): AxiosInstance {
 	return createAxiosInstance(
-		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-		BACKEND_API_URL! + routeSuffix,
+		"https://scooter-backend-production.up.railway.app/api" + routeSuffix,
 		authRequired,
 		async (error: ResponseError): Promise<BackendError> => {
 			return (
