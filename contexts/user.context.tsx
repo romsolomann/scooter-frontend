@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import {
 	type PropsWithChildren,
 	createContext,
@@ -7,7 +6,6 @@ import {
 	useState,
 } from "react";
 import { type UserResponse } from "../interfaces/user.interface";
-import { ERoutes } from "../routes/routes.enum";
 import { decodeToken, getAuthToken } from "../services/auth";
 
 interface IUserContext {
@@ -24,7 +22,6 @@ const UserContext = createContext({} as IUserContext);
 export const UserContextWrapper = ({
 	children,
 }: PropsWithChildren<{}>): JSX.Element => {
-	const { push } = useRouter();
 	const [user, setUser] = useState<UserResponse | undefined>(undefined);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -35,9 +32,9 @@ export const UserContextWrapper = ({
 	};
 
 	useEffect(() => {
-		if (!user) {
-			push(ERoutes.AUTH);
-		}
+		// if (!user) {
+		// 	push(ERoutes.AUTH);
+		// }
 	}, [user]);
 
 	useEffect(() => {
